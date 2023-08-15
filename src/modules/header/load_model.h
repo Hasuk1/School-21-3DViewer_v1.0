@@ -17,4 +17,6 @@ typedef struct data {
 
 enum exit_status { OK, ERROR };
 
+int file_parser_obj(char *file_name, model_data *data);
+
 #endif  // PARSER_H
