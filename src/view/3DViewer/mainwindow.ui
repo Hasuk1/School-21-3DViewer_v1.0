@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>.AppleSystemUIFont</family>
+    <pointsize>15</pointsize>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 rgba(211, 211, 211, 255), stop:1 rgba(255, 255, 255, 255));
+border-radius: 10px;
+    text-align: center;
+}
+QWidget{
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 rgba(211, 211, 211, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QMenuBar{
+    color: #596686;
+    background-color: rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+QMenu{
+color: #596686;
+    background-color: rgba(0, 0, 0, 0.16);
+    border-radius: 5px; 
+    text-align: center;
+}
+QStatusBar{
+color: #596686;
+    background-color: rgba(0, 0, 0, 0.16);
+    text-align: center;
+}
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Helvetica</family>
+     <pointsize>15</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_obj_file"/>
+    <addaction name="actionClose_file"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionClose_file">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/close_file.png</normaloff>icons/close_file.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close file</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionOpen_obj_file">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/open_file.png</normaloff>icons/open_file.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open .obj file</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
