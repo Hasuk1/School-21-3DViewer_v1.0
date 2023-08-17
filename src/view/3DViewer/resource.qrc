@@ -3,6 +3,6 @@
         <file>img/app_icon.png</file>
         <file>img/close_file.png</file>
         <file>img/open_file.png</file>
-        <file>img/background.jpeg</file>
+        <file>img/background.png</file>
     </qresource>
 </RCC>

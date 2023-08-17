@@ -27,6 +27,19 @@ int memory_allocation(model_data *data) {
   return exit_status;
 }
 
+void memory_free(model_data *data) {
+  if (data != NULL) {
+    if (data->vertices_v_arr != NULL) {
+      free(data->vertices_v_arr);
+      data->vertices_v_arr = NULL;
+    }
+    if (data->polygonals_f_arr != NULL) {
+      free(data->polygonals_f_arr);
+      data->polygonals_f_arr = NULL;
+    }
+  }
+}
+
 int get_parse_status(model_data *data) {
   int exit_status = OK;
   if (!data->vertices_v_arr[data->vertices_v_count * 3 - 1] ||

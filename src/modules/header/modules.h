@@ -19,10 +19,16 @@ enum exit_status { OK, ERROR };
 /*PARSER*/
 
 int file_parser_obj(char *file_name, model_data *data);
+void memory_free(model_data *data);
 
 /*AFFINE TRANSFORMATIONS*/
 
 void move_X(model_data *data, const double k);
-
+void move_Y(model_data *data, const double k);
+void move_Z(model_data *data, const double k);
+void scale(model_data *data, const double k);
+void rotate_X(model_data *data, double angle);
+void rotate_Y(model_data *data, double angle);
+void rotate_Z(model_data *data, double angle);
 
 #endif  // MODULES_H
