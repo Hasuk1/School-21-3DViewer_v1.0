@@ -10,15 +10,12 @@ void my_ogl_widget:: initializeGL(){
 }
 
 void my_ogl_widget::paintGL (){
-    // Очистка экрана и буферов глубины
         glClearColor(bg_r, bg_g, bg_b, 1);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glVertexPointer(3, GL_DOUBLE, 0, data.vertices_v_arr);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-
         if (this->projection_type == 0) { // Перспективная проекция
-
             glFrustum(-1 * normalize_coef, 1 * normalize_coef,
                       -1 * normalize_coef, 1 * normalize_coef,
                       normalize_coef, 1000 * normalize_coef);
@@ -30,14 +27,9 @@ void my_ogl_widget::paintGL (){
                      -1 * normalize_coef, 1000 * normalize_coef);
              glTranslatef(0, -normalize_coef / 2, 0);
         }
-
-        // Включаем использование массива вершин
         glEnableClientState(GL_VERTEX_ARRAY);
-
         if (this->v_display_method != 0) build_points();
-
         build_lines();
-        // Отключаем использование массива вершин
         glDisableClientState(GL_VERTEX_ARRAY);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
@@ -50,12 +42,6 @@ void my_ogl_widget::parse_file(char *filename) {
     file_parser_obj(filename, &this->data);
     set_normalize_coef();
     update();
-  } else {
-    QMessageBox warning = QMessageBox();
-    warning.setWindowTitle("Error");
-    warning.setText("Please choose .obj file");
-    warning.setIcon(QMessageBox::Warning);
-    warning.exec();
   }
 }
 
@@ -67,8 +53,7 @@ void my_ogl_widget::closeObject(){
 }
 
 void my_ogl_widget::set_normalize_coef() {
-  normalize_coef = -10;  // scarecrow
-
+  normalize_coef = -10;
   for (size_t i = 0; i < data.vertices_v_count * 3; i++) {
     if (abs(data.vertices_v_arr[i]) > normalize_coef) {
       normalize_coef = abs(data.vertices_v_arr[i]);

@@ -45,6 +45,24 @@ private slots:
 
   void on_closeObject_clicked();
 
+  void on_scaleSlider_valueChanged(int value);
+
+  void on_projectionType_currentIndexChanged(int index);
+
+  void on_moveByX_valueChanged(int value);
+
+  void on_moveByY_valueChanged(int value);
+
+  void on_moveByZ_valueChanged(int value);
+
+  void on_rotateByX_valueChanged(int value);
+
+  void on_rotateByY_valueChanged(int value);
+
+  void on_rotateByZ_valueChanged(int value);
+
+  void setStandartAffine();
+
 private:
   void set_mainwindow_attributes();
   void bind_slots();

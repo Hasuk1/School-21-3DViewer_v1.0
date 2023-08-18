@@ -23,6 +23,17 @@ void MainWindow::on_openObjFile_clicked()
         ui->pathToObjFile->setText(QString_filename);
 }
 
+void MainWindow::setStandartAffine()
+{
+    ui->moveByX->setValue(0);
+    ui->moveByY->setValue(0);
+    ui->moveByZ->setValue(0);
+    ui->scaleSlider->setValue(50);
+    ui->rotateByX->setValue(0);
+    ui->rotateByY->setValue(0);
+    ui->rotateByZ->setValue(0);
+}
+
 void MainWindow::on_renderObjFile_clicked()
 {
     QString fileNameStr = ui->pathToObjFile->text();
@@ -45,10 +56,86 @@ void MainWindow::on_renderObjFile_clicked()
         ui->edgesCount->setText("");
         ui->objName->setText("");
     }
-
+    setStandartAffine();
 }
 
 void MainWindow::on_closeObject_clicked()
 {
     ui->OGLWindow->closeObject();
+    ui->veticesCount->setText("");
+    ui->edgesCount->setText("");
+    ui->objName->setText("");
+    setStandartAffine();
 }
+
+void MainWindow::on_projectionType_currentIndexChanged(int index)
+{
+    if (index) {
+        ui->OGLWindow->projection_type = CENTRAL;
+    } else {
+        ui->OGLWindow->projection_type = PARALLEL;
+    }
+     ui->OGLWindow->update();
+}
+
+void MainWindow::on_scaleSlider_valueChanged(int value)
+{
+    double scaleValu = value / ui->OGLWindow->scale_val;
+    scale(&ui->OGLWindow->data, scaleValu);
+    ui->OGLWindow->scale_val = value;
+    ui->OGLWindow->update();
+}
+
+void MainWindow::on_moveByX_valueChanged(int value)
+{
+    double moveXValue = (value - ui->OGLWindow->translate_x) * ui->OGLWindow->normalize_coef/100;
+    move_X(&ui->OGLWindow->data, moveXValue);
+    ui->OGLWindow->translate_x = value;
+    ui->OGLWindow->update();
+}
+
+
+void MainWindow::on_moveByY_valueChanged(int value)
+{
+    double moveYValue = (value - ui->OGLWindow->translate_y) * ui->OGLWindow->normalize_coef/100;
+    move_Y(&ui->OGLWindow->data, moveYValue);
+    ui->OGLWindow->translate_y = value;
+    ui->OGLWindow->update();
+}
+
+
+void MainWindow::on_moveByZ_valueChanged(int value)
+{
+    double moveZValue = (value - ui->OGLWindow->translate_z) * ui->OGLWindow->normalize_coef/100;
+    move_Z(&ui->OGLWindow->data, moveZValue);
+    ui->OGLWindow->translate_z = value;
+    ui->OGLWindow->update();
+}
+
+
+void MainWindow::on_rotateByX_valueChanged(int value)
+{
+    double rotateXValue = value - ui->OGLWindow->rotate_x;
+    rotate_X(&ui->OGLWindow->data, rotateXValue);
+    ui->OGLWindow->rotate_x = value;
+    ui->OGLWindow->update();
+}
+
+
+void MainWindow::on_rotateByY_valueChanged(int value)
+{
+    double rotateYValue = value - ui->OGLWindow->rotate_y;
+    rotate_Y(&ui->OGLWindow->data, rotateYValue);
+    ui->OGLWindow->rotate_y = value;
+    ui->OGLWindow->update();
+}
+
+
+void MainWindow::on_rotateByZ_valueChanged(int value)
+{
+    double rotateZValue = value - ui->OGLWindow->rotate_z;
+    rotate_X(&ui->OGLWindow->data, rotateZValue);
+    ui->OGLWindow->rotate_z = value;
+    ui->OGLWindow->update();
+}
+
