@@ -144,6 +144,7 @@ public:
         pathToObjFile = new QLineEdit(groupBox);
         pathToObjFile->setObjectName(QString::fromUtf8("pathToObjFile"));
         pathToObjFile->setGeometry(QRect(10, 10, 275, 30));
+        pathToObjFile->setFocusPolicy(Qt::ClickFocus);
         pathToObjFile->setStyleSheet(QString::fromUtf8("background-color:rgb(30, 30, 30);\n"
 "border-radius: 5px;"));
         openObjFile = new QPushButton(groupBox);
