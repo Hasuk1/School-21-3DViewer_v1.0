@@ -211,7 +211,7 @@ void MainWindow::on_rotateByY_valueChanged(int value) {
 
 void MainWindow::on_rotateByZ_valueChanged(int value) {
   double rotateZValue = value - ui->OGLWindow->rotate_z;
-  rotate_X(&ui->OGLWindow->data, rotateZValue);
+  rotate_Z(&ui->OGLWindow->data, rotateZValue);
   ui->OGLWindow->rotate_z = value;
   ui->OGLWindow->update();
 }
@@ -515,13 +515,11 @@ void MainWindow::on_backgroundReset_clicked() {
   ui->OGLWindow->update();
 }
 
-
-
-void MainWindow::on_getScreanshot_clicked()
-{
-    QPixmap screenshot = ui->OGLWindow->grab();
-    QString filePath = QFileDialog::getSaveFileName(this, "Save Screenshot", "", "Images (*.png *.jpg)");
-    if (!filePath.isEmpty()) {
-                screenshot.save(filePath);
-            }
+void MainWindow::on_getScreanshot_clicked() {
+  QPixmap screenshot = ui->OGLWindow->grab();
+  QString filePath = QFileDialog::getSaveFileName(this, "Save Screenshot", "",
+                                                  "Images (*.png *.jpg)");
+  if (!filePath.isEmpty()) {
+    screenshot.save(filePath);
+  }
 }

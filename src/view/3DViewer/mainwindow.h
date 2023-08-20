@@ -1,8 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <my_ogl_widget.h>
+
+#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -62,10 +63,9 @@ class MainWindow : public QMainWindow {
 
   void on_backgroundReset_clicked();
 
-
   void on_getScreanshot_clicked();
 
-private:
+ private:
   void set_mainwindow_attributes();
   void bind_slots();
   void restore_default_values();
@@ -73,6 +73,5 @@ private:
   QPoint cur_pos;
   QPoint new_pos;
   QSettings *settings;
-
 };
 #endif  // MAINWINDOW_H

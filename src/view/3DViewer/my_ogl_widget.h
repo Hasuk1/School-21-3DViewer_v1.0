@@ -3,14 +3,15 @@
 #define GL_SILENCE_DEPRECATION
 
 #include <OpenGL/gl.h>
+
+#include <QDialog>
+#include <QFileDialog>
 #include <QMessageBox>
 #include <QOpenGLWidget>
+#include <QSettings>
 #include <QWheelEvent>
 #include <QWidget>
 #include <QtOpenGL>
-#include <QDialog>
-#include <QFileDialog>
-#include <QSettings>
 #include <iostream>
 
 extern "C" {
