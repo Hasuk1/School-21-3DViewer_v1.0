@@ -1,13 +1,16 @@
 #ifndef MY_OGL_WIDGET_H
 #define MY_OGL_WIDGET_H
 #define GL_SILENCE_DEPRECATION
-#include <OpenGL/gl.h>
 
+#include <OpenGL/gl.h>
 #include <QMessageBox>
 #include <QOpenGLWidget>
 #include <QWheelEvent>
 #include <QWidget>
 #include <QtOpenGL>
+#include <QDialog>
+#include <QFileDialog>
+#include <QSettings>
 #include <iostream>
 
 extern "C" {
