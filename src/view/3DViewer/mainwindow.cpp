@@ -514,3 +514,14 @@ void MainWindow::on_backgroundReset_clicked() {
   setBlackBackground();
   ui->OGLWindow->update();
 }
+
+
+
+void MainWindow::on_getScreanshot_clicked()
+{
+    QPixmap screenshot = ui->OGLWindow->grab();
+    QString filePath = QFileDialog::getSaveFileName(this, "Save Screenshot", "", "Images (*.png *.jpg)");
+    if (!filePath.isEmpty()) {
+                screenshot.save(filePath);
+            }
+}

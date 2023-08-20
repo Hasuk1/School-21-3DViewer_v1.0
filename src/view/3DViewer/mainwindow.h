@@ -1,16 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <my_ogl_widget.h>
-
-#include <QColorDialog>
-#include <QDateTime>
-#include <QDialog>
-#include <QFileDialog>
 #include <QMainWindow>
-#include <QMessageBox>
-#include <QSettings>
-#include <QWidget>
+#include <my_ogl_widget.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -70,7 +62,10 @@ class MainWindow : public QMainWindow {
 
   void on_backgroundReset_clicked();
 
- private:
+
+  void on_getScreanshot_clicked();
+
+private:
   void set_mainwindow_attributes();
   void bind_slots();
   void restore_default_values();
@@ -78,8 +73,6 @@ class MainWindow : public QMainWindow {
   QPoint cur_pos;
   QPoint new_pos;
   QSettings *settings;
-  QString gif_name;
-  QTimer *timer;
-  int frames_counter = 0;
+
 };
 #endif  // MAINWINDOW_H
