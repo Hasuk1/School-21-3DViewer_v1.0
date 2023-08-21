@@ -2,14 +2,18 @@
 
 #include "ui_mainwindow.h"
 
+extern "C" {
+#include "gif.h"
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
+
   setWindowTitle("3D Viewer");
   setFixedSize(width(), height());
   settings = new QSettings("setting3DViewer.conf", "settings", this);
   loadSettings();
-
   connect(ui->edgesRed, SIGNAL(clicked()), this, SLOT(edgesChangeColor()));
   connect(ui->edgesOrange, SIGNAL(clicked()), this, SLOT(edgesChangeColor()));
   connect(ui->edgesYellow, SIGNAL(clicked()), this, SLOT(edgesChangeColor()));
@@ -137,7 +141,8 @@ void MainWindow::on_renderObjFile_clicked() {
     char *start = strrchr(fileName, '/') + 1;
     char *ext = strrchr(fileName, '.');
     *ext = '\0';
-    ui->objName->setText(start);
+    QString nameFile = start;
+    ui->objName->setText(nameFile);
   } else {
     QMessageBox::information(this, "ERROR", "Enter a path to file correctly");
     ui->veticesCount->setText("");
@@ -515,11 +520,47 @@ void MainWindow::on_backgroundReset_clicked() {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_getScreanshot_clicked() {
+void MainWindow::on_getScreenshot_clicked() {
   QPixmap screenshot = ui->OGLWindow->grab();
   QString filePath = QFileDialog::getSaveFileName(this, "Save Screenshot", "",
                                                   "Images (*.png *.jpg)");
   if (!filePath.isEmpty()) {
     screenshot.save(filePath);
   }
+}
+
+void MainWindow::on_getGif_clicked() {
+  QString temp = QCoreApplication::applicationDirPath();
+  temp.resize(temp.size() - 38);
+  QString fileName = QFileDialog::getSaveFileName(
+      this, tr("Save Gif"), temp + "/images", tr("Gif (*.gif)"));
+
+  if (!fileName.isEmpty()) {
+    createGif(fileName);
+  } else {
+    QMessageBox::warning(this, "", "Failed to save gif.");
+  }
+}
+
+void MainWindow::createGif(QString fileName){
+    QImage img(ui->OGLWindow->size(), QImage::Format_RGB32), img640_480;
+    QPainter painter(&img);
+    QTime dieTime;
+    GifWriter gif;
+    QByteArray ba = fileName.toLocal8Bit();
+    const char *c_str = ba.data();
+    GifBegin(&gif, c_str, 640, 480, 10);
+
+    for (int i = 1; i <= 50; ++i) {
+      if (i % 10 == 0) ui->getGif->setText(QString::number(i / 10) + "s");
+      ui->OGLWindow->render(&painter);
+      img640_480 = img.scaled(QSize(640, 480));
+      GifWriteFrame(&gif, img640_480.bits(), 640, 480, 10);
+      dieTime = QTime::currentTime().addMSecs(100);
+      while (QTime::currentTime() < dieTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
+    }
+    ui->getGif->setText("GIF");
+    GifEnd(&gif);
+    QMessageBox::information(this, "GIF READY", "GIF saved successfully.");
 }

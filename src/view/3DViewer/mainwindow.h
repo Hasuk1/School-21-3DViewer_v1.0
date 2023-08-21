@@ -17,7 +17,6 @@ class MainWindow : public QMainWindow {
   MainWindow(QWidget *parent = nullptr);
   Ui::MainWindow *ui;
 
-  bool isObjFile;
   int vertices_count;
   int edges_count;
 
@@ -63,12 +62,12 @@ class MainWindow : public QMainWindow {
 
   void on_backgroundReset_clicked();
 
-  void on_getScreanshot_clicked();
+  void on_getScreenshot_clicked();
 
+  void on_getGif_clicked();
+  void createGif(QString fileName);
  private:
-  void set_mainwindow_attributes();
   void bind_slots();
-  void restore_default_values();
 
   QPoint cur_pos;
   QPoint new_pos;

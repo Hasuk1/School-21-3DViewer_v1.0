@@ -2,6 +2,7 @@ QT       += core gui opengl openglwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
 CONFIG += c++17
 ICON = img/app_icon.png
 
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     ../../modules/header/modules.h \
+    gif.h \
     mainwindow.h \
     my_ogl_widget.h
 
