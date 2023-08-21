@@ -27,7 +27,7 @@ void scale(model_data *data, const double k) {
 }
 
 void rotate_X(model_data *data, double angle) {
-  angle = angle * M_PI / 180;
+  angle = angle * PI / 180;
   for (size_t i = 0; i < data->vertices_v_count * 3; i += 3) {
     double Y = data->vertices_v_arr[i + 1];
     double Z = data->vertices_v_arr[i + 2];
@@ -37,7 +37,7 @@ void rotate_X(model_data *data, double angle) {
 }
 
 void rotate_Y(model_data *data, double angle) {
-  angle = angle * M_PI / 180;
+  angle = angle * PI / 180;
   for (size_t i = 0; i < data->vertices_v_count * 3; i += 3) {
     double X = data->vertices_v_arr[i];
     double Z = data->vertices_v_arr[i + 2];
@@ -47,7 +47,7 @@ void rotate_Y(model_data *data, double angle) {
 }
 
 void rotate_Z(model_data *data, double angle) {
-  angle = angle * M_PI / 180;
+  angle = angle * PI / 180;
   for (size_t i = 0; i < data->vertices_v_count * 3; i += 3) {
     double X = data->vertices_v_arr[i];
     double Y = data->vertices_v_arr[i + 1];

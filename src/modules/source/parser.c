@@ -69,7 +69,8 @@ int parse_vertices_and_polygonals(FILE *file, model_data *data) {
         if (indx_value) {
           if (indx_value < 0) {
             indx_value += polygonals_count;
-          } else indx_value -= 1;
+          } else
+            indx_value -= 1;
           if (is_first_indx) {
             data->polygonals_f_arr[f_j++] = indx_value;
             first_indx = indx_value;
@@ -90,9 +91,10 @@ int parse_vertices_and_polygonals(FILE *file, model_data *data) {
 }
 
 int file_parser_obj(char *file_name, model_data *data) {
+  if (file_name == NULL) return ERROR;
   int exit_status = OK;
   FILE *obj_file = fopen(file_name, "r");
-  if (file_name != NULL && data != NULL && obj_file) {
+  if (data != NULL && obj_file) {
     count_vertices_and_polygonals(obj_file, data);
     if (memory_allocation(data) == OK) {
       fseek(obj_file, 0, SEEK_SET);

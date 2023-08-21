@@ -66,6 +66,7 @@ class MainWindow : public QMainWindow {
 
   void on_getGif_clicked();
   void createGif(QString fileName);
+
  private:
   void bind_slots();
 

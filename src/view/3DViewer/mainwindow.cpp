@@ -319,10 +319,11 @@ void MainWindow::on_edgesType_currentIndexChanged(int index) {
 }
 
 void MainWindow::on_edgesReset_clicked() {
-  ui->edgesThickness->setValue(1);
-  ui->edgesType->setCurrentIndex(0);
   edgesStdClrBtn();
   setWhiteEdges();
+  ui->edgesThickness->setValue(1);
+  ui->edgesType->setCurrentIndex(0);
+  ui->OGLWindow->update();
 }
 
 void MainWindow::verticesStdClrBtn() {
@@ -542,25 +543,25 @@ void MainWindow::on_getGif_clicked() {
   }
 }
 
-void MainWindow::createGif(QString fileName){
-    QImage img(ui->OGLWindow->size(), QImage::Format_RGB32), img640_480;
-    QPainter painter(&img);
-    QTime dieTime;
-    GifWriter gif;
-    QByteArray ba = fileName.toLocal8Bit();
-    const char *c_str = ba.data();
-    GifBegin(&gif, c_str, 640, 480, 10);
+void MainWindow::createGif(QString fileName) {
+  QImage img(ui->OGLWindow->size(), QImage::Format_RGB32), img640_480;
+  QPainter painter(&img);
+  QTime dieTime;
+  GifWriter gif;
+  QByteArray ba = fileName.toLocal8Bit();
+  const char *c_str = ba.data();
+  GifBegin(&gif, c_str, 640, 480, 10);
 
-    for (int i = 1; i <= 50; ++i) {
-      if (i % 10 == 0) ui->getGif->setText(QString::number(i / 10) + "s");
-      ui->OGLWindow->render(&painter);
-      img640_480 = img.scaled(QSize(640, 480));
-      GifWriteFrame(&gif, img640_480.bits(), 640, 480, 10);
-      dieTime = QTime::currentTime().addMSecs(100);
-      while (QTime::currentTime() < dieTime)
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
-    }
-    ui->getGif->setText("GIF");
-    GifEnd(&gif);
-    QMessageBox::information(this, "GIF READY", "GIF saved successfully.");
+  for (int i = 1; i <= 50; ++i) {
+    if (i % 10 == 0) ui->getGif->setText(QString::number(i / 10) + "s");
+    ui->OGLWindow->render(&painter);
+    img640_480 = img.scaled(QSize(640, 480));
+    GifWriteFrame(&gif, img640_480.bits(), 640, 480, 10);
+    dieTime = QTime::currentTime().addMSecs(100);
+    while (QTime::currentTime() < dieTime)
+      QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
+  }
+  ui->getGif->setText("GIF");
+  GifEnd(&gif);
+  QMessageBox::information(this, "GIF READY", "GIF saved successfully.");
 }

@@ -1,11 +1,15 @@
 #ifndef MODULES_H
 #define MODULES_H
 
+#define _GNU_SOURCE
+
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define PI 3.14159265358979323846264338327950288
 
 typedef struct data {
   unsigned int vertices_v_count;
