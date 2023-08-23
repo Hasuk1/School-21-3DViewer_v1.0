@@ -2,8 +2,6 @@
 #define MY_OGL_WIDGET_H
 #define GL_SILENCE_DEPRECATION
 
-#include <OpenGL/gl.h>
-
 #include <QDialog>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -18,7 +16,7 @@ extern "C" {
 #include "../../modules/header/modules.h"
 }
 
-class my_ogl_widget : public QOpenGLWidget, protected QOpenGLFunctions {
+my_ogl_widget::my_ogl_widget(QWidget *parent) : QOpenGLWidget(parent), QOpenGLFunctions(), rotate_x(0.0f) {
   Q_OBJECT
  public:
   explicit my_ogl_widget(QWidget *parent = nullptr);

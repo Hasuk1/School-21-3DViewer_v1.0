@@ -100,7 +100,7 @@ border-radius: 10px;
 border-radius: 5px;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="openObjFile">
+    <widget class="QPushButton" name="open_obj_file">
      <property name="geometry">
       <rect>
        <x>290</x>
@@ -134,7 +134,7 @@ color: white;
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="renderObjFile">
+   <widget class="QPushButton" name="render_obj_file">
     <property name="geometry">
      <rect>
       <x>1040</x>
@@ -168,7 +168,7 @@ color: white;
      <string>Render</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="closeObject">
+   <widget class="QPushButton" name="close_object">
     <property name="geometry">
      <rect>
       <x>1390</x>
@@ -242,7 +242,7 @@ color: white;
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QSlider" name="moveByX">
+    <widget class="QSlider" name="move_by_x">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -409,7 +409,7 @@ background-color: rgba(1,1,1,0);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QSlider" name="moveByY">
+    <widget class="QSlider" name="move_by_y">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -464,7 +464,7 @@ QSlider::handle:horizontal {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QSlider" name="moveByZ">
+    <widget class="QSlider" name="move_by_z">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -605,7 +605,7 @@ background-color: rgba(1,1,1,0);</string>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QSlider" name="scaleSlider">
+    <widget class="QSlider" name="scale_slider">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -793,7 +793,7 @@ background-color: rgba(1,1,1,0);</string>
     <property name="title">
      <string/>
     </property>
-    <widget class="QComboBox" name="edgesType">
+    <widget class="QComboBox" name="edges_type">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -855,7 +855,7 @@ QComboBox::view {
       </property>
      </item>
     </widget>
-    <widget class="QSlider" name="edgesThickness">
+    <widget class="QSlider" name="edges_thickness">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1036,7 +1036,7 @@ border-radius: 5px;</string>
       <string>W</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="edgesReset">
+    <widget class="QPushButton" name="edges_reset">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -1240,7 +1240,7 @@ border-radius: 5px;</string>
       <string>G</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="backgroundReset">
+    <widget class="QPushButton" name="background_reset">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -1639,7 +1639,7 @@ border: 2px solid rgb(190, 249, 81);
     <property name="title">
      <string/>
     </property>
-    <widget class="QComboBox" name="projectionType">
+    <widget class="QComboBox" name="projection_type">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -1760,7 +1760,7 @@ border: 2px solid rgb(190, 249, 81);
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QSlider" name="rotateByX">
+    <widget class="QSlider" name="rotate_by_x">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -1927,7 +1927,7 @@ background-color: rgba(1,1,1,0);</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QSlider" name="rotateByY">
+    <widget class="QSlider" name="rotate_by_y">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -1982,7 +1982,7 @@ QSlider::handle:horizontal {
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QSlider" name="rotateByZ">
+    <widget class="QSlider" name="rotate_by_z">
      <property name="geometry">
       <rect>
        <x>35</x>
@@ -2143,7 +2143,7 @@ border: 2px solid rgb(190, 249, 81);
     <property name="title">
      <string/>
     </property>
-    <widget class="QComboBox" name="verticesType">
+    <widget class="QComboBox" name="vertices_type">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -2210,7 +2210,7 @@ QComboBox::view {
       </property>
      </item>
     </widget>
-    <widget class="QSlider" name="verticesThickness">
+    <widget class="QSlider" name="vertices_thickness">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -2391,7 +2391,7 @@ border-radius: 5px;</string>
       <string>W</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="verticesReset">
+    <widget class="QPushButton" name="vertices_reset">
      <property name="geometry">
       <rect>
        <x>195</x>
@@ -2533,7 +2533,7 @@ border: 2px solid rgb(190, 249, 81);
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="getScreenshot">
+   <widget class="QPushButton" name="get_screenshot">
     <property name="geometry">
      <rect>
       <x>1040</x>
@@ -2567,7 +2567,7 @@ color: white;
      <string>SCREENSHOT</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="getGif">
+   <widget class="QPushButton" name="get_gif">
     <property name="geometry">
      <rect>
       <x>1240</x>

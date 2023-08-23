@@ -81,7 +81,7 @@ void MainWindow::saveSettings() {
 void MainWindow::loadSettings() {
   if (settings->value("settings").toInt()) {
     char rgbColor[40];
-    ui->projectionType->setCurrentIndex(
+    ui->projection_type->setCurrentIndex(
         settings->value("projection_type").toInt());
     ui->OGLWindow->l_r = settings->value("l_r").toDouble();
     ui->OGLWindow->l_g = settings->value("l_g").toDouble();
@@ -89,17 +89,17 @@ void MainWindow::loadSettings() {
     sprintf(rgbColor, "background-color: rgb(%d,%d,%d)",
             (int)(ui->OGLWindow->l_r * 255), (int)(ui->OGLWindow->l_g * 255),
             (int)(ui->OGLWindow->l_b * 255));
-    ui->edgesThickness->setValue(settings->value("l_thickness").toInt());
+    ui->edges_thickness->setValue(settings->value("l_thickness").toInt());
 
-    ui->edgesType->setCurrentIndex(settings->value("l_type").toInt());
+    ui->edges_type->setCurrentIndex(settings->value("l_type").toInt());
     ui->OGLWindow->v_r = settings->value("v_r").toDouble();
     ui->OGLWindow->v_g = settings->value("v_g").toDouble();
     ui->OGLWindow->v_b = settings->value("v_b").toDouble();
     sprintf(rgbColor, "background-color: rgb(%d,%d,%d)",
             (int)(ui->OGLWindow->v_r * 255), (int)(ui->OGLWindow->v_g * 255),
             (int)(ui->OGLWindow->v_b * 255));
-    ui->verticesThickness->setValue(settings->value("v_size").toInt());
-    ui->verticesType->setCurrentIndex(settings->value("v_type").toInt());
+    ui->vertices_thickness->setValue(settings->value("v_size").toInt());
+    ui->vertices_type->setCurrentIndex(settings->value("v_type").toInt());
 
     ui->OGLWindow->bg_r = settings->value("bg_r").toDouble();
     ui->OGLWindow->bg_g = settings->value("bg_g").toDouble();
@@ -110,7 +110,7 @@ void MainWindow::loadSettings() {
   }
 }
 
-void MainWindow::on_openObjFile_clicked() {
+void MainWindow::on_open_obj_file_clicked() {
   QString rootPath = QDir::rootPath();
   QString QString_filename = QFileDialog::getOpenFileName(
       this, tr("Open .obj file:"), rootPath, tr("Obj Files (*.obj)"));
@@ -118,16 +118,16 @@ void MainWindow::on_openObjFile_clicked() {
 }
 
 void MainWindow::setStandartAffine() {
-  ui->moveByX->setValue(0);
-  ui->moveByY->setValue(0);
-  ui->moveByZ->setValue(0);
-  ui->scaleSlider->setValue(50);
-  ui->rotateByX->setValue(0);
-  ui->rotateByY->setValue(0);
-  ui->rotateByZ->setValue(0);
+  ui->move_by_x->setValue(0);
+  ui->move_by_y->setValue(0);
+  ui->move_by_z->setValue(0);
+  ui->scale_slider->setValue(50);
+  ui->rotate_by_x->setValue(0);
+  ui->rotate_by_y->setValue(0);
+  ui->rotate_by_z->setValue(0);
 }
 
-void MainWindow::on_renderObjFile_clicked() {
+void MainWindow::on_render_obj_file_clicked() {
   QString fileNameStr = ui->pathToObjFile->text();
   QByteArray fileNameUtf8 = fileNameStr.toUtf8();
   char *fileName = fileNameUtf8.data();
@@ -152,7 +152,7 @@ void MainWindow::on_renderObjFile_clicked() {
   setStandartAffine();
 }
 
-void MainWindow::on_closeObject_clicked() {
+void MainWindow::on_close_object_clicked() {
   ui->OGLWindow->closeObject();
   ui->veticesCount->setText("");
   ui->edgesCount->setText("");
@@ -160,7 +160,7 @@ void MainWindow::on_closeObject_clicked() {
   setStandartAffine();
 }
 
-void MainWindow::on_projectionType_currentIndexChanged(int index) {
+void MainWindow::on_projection_type_currentIndexChanged(int index) {
   if (index) {
     ui->OGLWindow->projection_type = CENTRAL;
   } else {
@@ -169,14 +169,14 @@ void MainWindow::on_projectionType_currentIndexChanged(int index) {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_scaleSlider_valueChanged(int value) {
+void MainWindow::on_scale_slider_valueChanged(int value) {
   double scaleValu = value / ui->OGLWindow->scale_val;
   scale(&ui->OGLWindow->data, scaleValu);
   ui->OGLWindow->scale_val = value;
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_moveByX_valueChanged(int value) {
+void MainWindow::on_move_by_x_valueChanged(int value) {
   double moveXValue = (value - ui->OGLWindow->translate_x) *
                       ui->OGLWindow->normalize_coef / 100;
   move_X(&ui->OGLWindow->data, moveXValue);
@@ -184,7 +184,7 @@ void MainWindow::on_moveByX_valueChanged(int value) {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_moveByY_valueChanged(int value) {
+void MainWindow::on_move_by_y_valueChanged(int value) {
   double moveYValue = (value - ui->OGLWindow->translate_y) *
                       ui->OGLWindow->normalize_coef / 100;
   move_Y(&ui->OGLWindow->data, moveYValue);
@@ -192,7 +192,7 @@ void MainWindow::on_moveByY_valueChanged(int value) {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_moveByZ_valueChanged(int value) {
+void MainWindow::on_move_by_z_valueChanged(int value) {
   double moveZValue = (value - ui->OGLWindow->translate_z) *
                       ui->OGLWindow->normalize_coef / 100;
   move_Z(&ui->OGLWindow->data, moveZValue);
@@ -200,21 +200,21 @@ void MainWindow::on_moveByZ_valueChanged(int value) {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_rotateByX_valueChanged(int value) {
+void MainWindow::on_rotate_by_x_valueChanged(int value) {
   double rotateXValue = value - ui->OGLWindow->rotate_x;
   rotate_X(&ui->OGLWindow->data, rotateXValue);
   ui->OGLWindow->rotate_x = value;
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_rotateByY_valueChanged(int value) {
+void MainWindow::on_rotate_by_y_valueChanged(int value) {
   double rotateYValue = value - ui->OGLWindow->rotate_y;
   rotate_Y(&ui->OGLWindow->data, rotateYValue);
   ui->OGLWindow->rotate_y = value;
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_rotateByZ_valueChanged(int value) {
+void MainWindow::on_rotate_by_z_valueChanged(int value) {
   double rotateZValue = value - ui->OGLWindow->rotate_z;
   rotate_Z(&ui->OGLWindow->data, rotateZValue);
   ui->OGLWindow->rotate_z = value;
@@ -304,12 +304,12 @@ void MainWindow::edgesChangeColor() {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_edgesThickness_valueChanged(int value) {
+void MainWindow::on_edges_thickness_valueChanged(int value) {
   ui->OGLWindow->l_thickness = value;
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_edgesType_currentIndexChanged(int index) {
+void MainWindow::on_edges_type_currentIndexChanged(int index) {
   if (index) {
     ui->OGLWindow->l_type = DASHED;
   } else {
@@ -318,11 +318,11 @@ void MainWindow::on_edgesType_currentIndexChanged(int index) {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_edgesReset_clicked() {
+void MainWindow::on_edges_reset_clicked() {
   edgesStdClrBtn();
   setWhiteEdges();
-  ui->edgesThickness->setValue(1);
-  ui->edgesType->setCurrentIndex(0);
+  ui->edges_thickness->setValue(1);
+  ui->edges_type->setCurrentIndex(0);
   ui->OGLWindow->update();
 }
 
@@ -409,12 +409,12 @@ void MainWindow::verticesChangeColor() {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_verticesThickness_valueChanged(int value) {
+void MainWindow::on_vertices_thickness_valueChanged(int value) {
   ui->OGLWindow->v_size = value;
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_verticesType_currentIndexChanged(int index) {
+void MainWindow::on_vertices_type_currentIndexChanged(int index) {
   if (index == 0) {
     ui->OGLWindow->v_type = NONE;
   } else if (index == 1) {
@@ -424,9 +424,9 @@ void MainWindow::on_verticesType_currentIndexChanged(int index) {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_verticesReset_clicked() {
-  ui->verticesThickness->setValue(1);
-  ui->verticesType->setCurrentIndex(0);
+void MainWindow::on_vertices_reset_clicked() {
+  ui->vertices_thickness->setValue(1);
+  ui->vertices_type->setCurrentIndex(0);
   verticesStdClrBtn();
   setWhiteVertices();
   ui->OGLWindow->update();
@@ -515,13 +515,13 @@ void MainWindow::backgroundChangeColor() {
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_backgroundReset_clicked() {
+void MainWindow::on_background_reset_clicked() {
   backgroundStdClrBtn();
   setBlackBackground();
   ui->OGLWindow->update();
 }
 
-void MainWindow::on_getScreenshot_clicked() {
+void MainWindow::on_get_screenshot_clicked() {
   QPixmap screenshot = ui->OGLWindow->grab();
   QString filePath = QFileDialog::getSaveFileName(this, "Save Screenshot", "",
                                                   "Images (*.png *.jpg)");
@@ -530,7 +530,7 @@ void MainWindow::on_getScreenshot_clicked() {
   }
 }
 
-void MainWindow::on_getGif_clicked() {
+void MainWindow::on_get_gif_clicked() {
   QString temp = QCoreApplication::applicationDirPath();
   temp.resize(temp.size() - 38);
   QString fileName = QFileDialog::getSaveFileName(
@@ -553,7 +553,7 @@ void MainWindow::createGif(QString fileName) {
   GifBegin(&gif, c_str, 640, 480, 10);
 
   for (int i = 1; i <= 50; ++i) {
-    if (i % 10 == 0) ui->getGif->setText(QString::number(i / 10) + "s");
+    if (i % 10 == 0) ui->get_gif->setText(QString::number(i / 10) + "s");
     ui->OGLWindow->render(&painter);
     img640_480 = img.scaled(QSize(640, 480));
     GifWriteFrame(&gif, img640_480.bits(), 640, 480, 10);
@@ -561,7 +561,7 @@ void MainWindow::createGif(QString fileName) {
     while (QTime::currentTime() < dieTime)
       QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
   }
-  ui->getGif->setText("GIF");
+  ui->get_gif->setText("GIF");
   GifEnd(&gif);
   QMessageBox::information(this, "GIF READY", "GIF saved successfully.");
 }

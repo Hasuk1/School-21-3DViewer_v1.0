@@ -27,49 +27,51 @@ class MainWindow : public QMainWindow {
   ~MainWindow();
 
  private slots:
-  void on_openObjFile_clicked();
-  void on_renderObjFile_clicked();
-  void on_closeObject_clicked();
-  void on_scaleSlider_valueChanged(int value);
-  void on_projectionType_currentIndexChanged(int index);
-  void on_moveByX_valueChanged(int value);
-  void on_moveByY_valueChanged(int value);
-  void on_moveByZ_valueChanged(int value);
-  void on_rotateByX_valueChanged(int value);
-  void on_rotateByY_valueChanged(int value);
-  void on_rotateByZ_valueChanged(int value);
-  void setStandartAffine();
   void saveSettings();
   void loadSettings();
 
   void edgesChangeColor();
   void setWhiteEdges();
   void edgesStdClrBtn();
-  void on_edgesThickness_valueChanged(int value);
-  void on_edgesType_currentIndexChanged(int index);
-  void on_edgesReset_clicked();
+  void on_edges_thickness_valueChanged(int value);
+  void on_edges_type_currentIndexChanged(int index);
+  void on_edges_reset_clicked();
 
   void verticesChangeColor();
   void setWhiteVertices();
   void verticesStdClrBtn();
-  void on_verticesThickness_valueChanged(int value);
-  void on_verticesType_currentIndexChanged(int index);
-  void on_verticesReset_clicked();
+  void on_vertices_thickness_valueChanged(int value);
+  void on_vertices_type_currentIndexChanged(int index);
+  void on_vertices_reset_clicked();
 
   void backgroundChangeColor();
   void setBlackBackground();
   void backgroundStdClrBtn();
+  void on_background_reset_clicked();
 
-  void on_backgroundReset_clicked();
+  void on_projection_type_currentIndexChanged(int index);
 
-  void on_getScreenshot_clicked();
+  void on_move_by_x_valueChanged(int value);
+  void on_move_by_y_valueChanged(int value);
+  void on_move_by_z_valueChanged(int value);
 
-  void on_getGif_clicked();
+  void on_scale_slider_valueChanged(int value);
+
+  void on_rotate_by_x_valueChanged(int value);
+  void on_rotate_by_y_valueChanged(int value);
+  void on_rotate_by_z_valueChanged(int value);
+
+  void setStandartAffine();
+
+  void on_get_screenshot_clicked();
+  void on_get_gif_clicked();
   void createGif(QString fileName);
 
- private:
-  void bind_slots();
+  void on_open_obj_file_clicked();
+  void on_render_obj_file_clicked();
+  void on_close_object_clicked();
 
+ private:
   QPoint cur_pos;
   QPoint new_pos;
   QSettings *settings;
