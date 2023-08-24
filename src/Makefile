@@ -86,3 +86,6 @@ valgrind: clean test
 
 leaks: clean test
 	@leaks -atExit -- ./test
+
+file:
+	open https://drive.google.com/file/d/1YEcNc4zkODRtwU2QbIEbBAbtLYOCrjo5/view?usp=drive_link

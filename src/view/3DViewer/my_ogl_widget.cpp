@@ -37,9 +37,12 @@ void my_ogl_widget::parse_file(char *filename) {
   memory_free(&this->data);
   data = {0, NULL, 0, NULL};
   if (filename) {
-    file_parser_obj(filename, &this->data);
-    set_normalize_coef();
-    update();
+    if (file_parser_obj(filename, &this->data) == OK) {
+      set_normalize_coef();
+      update();
+    } else
+      closeObject();
+    QMessageBox::information(this, "ERROR", "Enter a correctly obj-file");
   }
 }
 

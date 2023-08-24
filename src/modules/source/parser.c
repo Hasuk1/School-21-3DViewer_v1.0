@@ -40,12 +40,34 @@ void memory_free(model_data *data) {
   }
 }
 
-int get_parse_status(model_data *data) {
-  int exit_status = OK;
-  if (!data->vertices_v_arr[data->vertices_v_count * 3 - 1] ||
-      !data->polygonals_f_arr[data->polygonals_f_count * 2 - 1])
-    exit_status = ERROR;
-  return exit_status;
+void parse_polygons(char *buff_str, size_t polygonals_count, model_data *data,
+                    size_t *f_j) {
+  int first_indx = 0;
+  bool is_first_indx = true;
+  char *polygonals_indx = strtok(buff_str + 2, " ");
+  while (polygonals_indx) {
+    int indx_value = atoi(polygonals_indx);
+    if (indx_value) {
+      if (indx_value < 0) {
+        indx_value += polygonals_count;
+      } else
+        indx_value -= 1;
+      if (is_first_indx) {
+        data->polygonals_f_arr[*f_j] = indx_value;
+        *f_j += 1;
+        first_indx = indx_value;
+        is_first_indx = false;
+      } else {
+        data->polygonals_f_arr[*f_j] = indx_value;
+        *f_j += 1;
+        data->polygonals_f_arr[*f_j] = indx_value;
+        *f_j += 1;
+      }
+    }
+    polygonals_indx = strtok(NULL, " ");
+  }
+  data->polygonals_f_arr[*f_j] = first_indx;
+  *f_j += 1;
 }
 
 int parse_vertices_and_polygonals(FILE *file, model_data *data) {
@@ -55,38 +77,20 @@ int parse_vertices_and_polygonals(FILE *file, model_data *data) {
   while (getline(&buff_str, &ln, file) != EOF) {
     if (strncmp(buff_str, "v ", 2) == 0) {
       double x = 0, y = 0, z = 0;
-      sscanf(buff_str, "v %lf %lf %lf", &x, &y, &z);
-      data->vertices_v_arr[v_i++] = x;
-      data->vertices_v_arr[v_i++] = y;
-      data->vertices_v_arr[v_i++] = z;
-      polygonals_count++;
-    } else if (strncmp(buff_str, "f ", 2) == 0) {
-      int first_indx = 0;
-      bool is_first_indx = true;
-      char *polygonals_indx = strtok(buff_str + 2, " ");
-      while (polygonals_indx) {
-        int indx_value = atoi(polygonals_indx);
-        if (indx_value) {
-          if (indx_value < 0) {
-            indx_value += polygonals_count;
-          } else
-            indx_value -= 1;
-          if (is_first_indx) {
-            data->polygonals_f_arr[f_j++] = indx_value;
-            first_indx = indx_value;
-            is_first_indx = false;
-          } else {
-            data->polygonals_f_arr[f_j++] = indx_value;
-            data->polygonals_f_arr[f_j++] = indx_value;
-          }
-        }
-        polygonals_indx = strtok(NULL, " ");
+      if (sscanf(buff_str, "v %lf %lf %lf", &x, &y, &z) != 0) {
+        data->vertices_v_arr[v_i++] = x;
+        data->vertices_v_arr[v_i++] = y;
+        data->vertices_v_arr[v_i++] = z;
+        polygonals_count++;
+      } else {
+        exit_status = ERROR;
+        break;
       }
-      data->polygonals_f_arr[f_j++] = first_indx;
+    } else if (strncmp(buff_str, "f ", 2) == 0) {
+      parse_polygons(buff_str, polygonals_count, data, &f_j);
     }
   }
   if (buff_str) free(buff_str);
-  exit_status = get_parse_status(data);
   return exit_status;
 }
 

@@ -393,14 +393,14 @@ void MainWindow::verticesChangeColor() {
     ui->OGLWindow->v_r = QColor::fromRgb(34, 0, 0).redF();
     ui->OGLWindow->v_g = QColor::fromRgb(0, 83, 0).greenF();
     ui->OGLWindow->v_b = QColor::fromRgb(0, 0, 237).blueF();
-    ui->verticesPurple->setStyleSheet(
+    ui->verticesBlue->setStyleSheet(
         "background-color:rgb(34, 83, 237);border-radius: 5px;color:rgb(34, "
         "83, 237);border: 2px solid rgb(200, 249, 100);");
   } else if (button->text() == "P") {
     ui->OGLWindow->v_r = QColor::fromRgb(95, 0, 0).redF();
     ui->OGLWindow->v_g = QColor::fromRgb(0, 15, 0).greenF();
     ui->OGLWindow->v_b = QColor::fromRgb(0, 0, 162).blueF();
-    ui->edgesPurple->setStyleSheet(
+    ui->verticesPurple->setStyleSheet(
         "background-color: rgb(95, 15, 162);border-radius: 5px;color:rgb(95, "
         "15, 162);border: 2px solid rgb(200, 249, 100);");
   } else if (button->text() == "W") {
