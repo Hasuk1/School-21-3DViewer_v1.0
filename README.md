@@ -1,6 +1,6 @@
 # **3DViewer v1.0**
 
-![priev](/misc/3d3.jpg)
+![priev](https://github.com/Hasuk1/School-21-3DViewer_v1.0/blob/main/misc/3d3.jpg?raw=true)
 
 ## **Описание проекта**
 
