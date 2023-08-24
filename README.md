@@ -1,6 +1,6 @@
 # **3DViewer v1.0**
 
-![priev](/misc/3d3.png)
+![priev](/misc/3d3.jpg)
 
 ## **Описание проекта**
 
