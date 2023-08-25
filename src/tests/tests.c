@@ -22,7 +22,7 @@ END_TEST
 
 START_TEST(affine_transformation_1) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 0.0000000,  0.0000000, 1.0000000, 1.7320508,
       0.0000000, 1.7320508, -1.0000000, 0.0000000, 2.7320508, 0.7320508,
@@ -44,7 +44,7 @@ END_TEST
 
 START_TEST(affine_transformation_2) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 0.0000000, 0.0000000, -1.0000000, 1.7320508,
       0.0000000, 1.7320508, 1.0000000, 0.0000000, 0.7320508,  2.7320508,
@@ -65,7 +65,7 @@ END_TEST
 
 START_TEST(affine_transformation_3) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, -0.0000000, 0.0000000, 0.0000000, -0.6840403, -1.8793852,
       0.0000000, -1.8793852, 0.6840403, 0.0000000, -2.5634255, -1.1953450,
@@ -86,7 +86,7 @@ END_TEST
 
 START_TEST(affine_transformation_4) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 0.0000000,  1.0000000, 0.0000000, 1.7320508,
       0.0000000, 2.0000000, 0.0000000,  1.0000000, 2.0000000, 1.7320508,
@@ -108,7 +108,7 @@ END_TEST
 
 START_TEST(affine_transformation_5) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 0.0000000, -1.0000000, 0.0000000, 1.7320508,
       0.0000000, 2.0000000, 0.0000000, -1.0000000, 2.0000000, 1.7320508,
@@ -130,7 +130,7 @@ END_TEST
 
 START_TEST(affine_transformation_6) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       -0.0000000, 0.0000000, 0.0000000, -0.6840403, 0.0000000, -1.8793852,
       -0.0000000, 2.0000000, 0.0000000, -0.6840403, 2.0000000, -1.8793852,
@@ -152,7 +152,7 @@ END_TEST
 
 START_TEST(affine_transformation_7) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000,  0.0000000, 0.0000000, 0.0000000,  2.0000000,
       1.0000000, 1.7320508,  0.0000000, 1.0000000, 1.7320508,  2.0000000,
@@ -174,7 +174,7 @@ END_TEST
 
 START_TEST(affine_transformation_8) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000,  0.0000000, 0.0000000, 0.0000000,  0.0000000, 2.0000000,
       -1.0000000, 1.7320508, 0.0000000, -1.0000000, 1.7320508, 2.0000000,
@@ -196,7 +196,7 @@ END_TEST
 
 START_TEST(affine_transformation_9) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       -0.0000000, 0.0000000,  0.0000000, -0.0000000, 0.0000000,  2.0000000,
       -0.6840403, -1.8793852, 0.0000000, -0.6840403, -1.8793852, 2.0000000,
@@ -218,7 +218,7 @@ END_TEST
 
 START_TEST(affine_transformation_10) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.0000000, 6.0000000,
       0.0000000, 6.0000000, 0.0000000, 0.0000000, 6.0000000, 6.0000000,
@@ -240,7 +240,7 @@ END_TEST
 
 START_TEST(affine_transformation_11) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.0000000, 0.6000000,
       0.0000000, 0.6000000, 0.0000000, 0.0000000, 0.6000000, 0.6000000,
@@ -262,7 +262,7 @@ END_TEST
 
 START_TEST(affine_transformation_12) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000,      0.0000000,      0.0000000,      0.0000000,
       0.0000000,      666666.0000000, 0.0000000,      666666.0000000,
@@ -286,7 +286,7 @@ END_TEST
 
 START_TEST(affine_transformation_13) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       3.0000000, 0.0000000, 0.0000000, 3.0000000, 0.0000000, 2.0000000,
       3.0000000, 2.0000000, 0.0000000, 3.0000000, 2.0000000, 2.0000000,
@@ -308,7 +308,7 @@ END_TEST
 
 START_TEST(affine_transformation_14) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       -3.0000000, 0.0000000, 0.0000000, -3.0000000, 0.0000000, 2.0000000,
       -3.0000000, 2.0000000, 0.0000000, -3.0000000, 2.0000000, 2.0000000,
@@ -330,7 +330,7 @@ END_TEST
 
 START_TEST(affine_transformation_15) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       -0.5000000, 0.0000000, 0.0000000, -0.5000000, 0.0000000, 2.0000000,
       -0.5000000, 2.0000000, 0.0000000, -0.5000000, 2.0000000, 2.0000000,
@@ -352,7 +352,7 @@ END_TEST
 
 START_TEST(affine_transformation_16) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 3.0000000, 0.0000000, 0.0000000, 3.0000000, 2.0000000,
       0.0000000, 5.0000000, 0.0000000, 0.0000000, 5.0000000, 2.0000000,
@@ -374,7 +374,7 @@ END_TEST
 
 START_TEST(affine_transformation_17) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, -0.5000000, 0.0000000, 0.0000000, -0.5000000, 2.0000000,
       0.0000000, 1.5000000,  0.0000000, 0.0000000, 1.5000000,  2.0000000,
@@ -396,7 +396,7 @@ END_TEST
 
 START_TEST(affine_transformation_18) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, 3.0000000, 0.0000000, 0.0000000, 5.0000000,
       0.0000000, 2.0000000, 3.0000000, 0.0000000, 2.0000000, 5.0000000,
@@ -418,7 +418,7 @@ END_TEST
 
 START_TEST(affine_transformation_19) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, -3.0000000, 0.0000000, 0.0000000, -1.0000000,
       0.0000000, 2.0000000, -3.0000000, 0.0000000, 2.0000000, -1.0000000,
@@ -440,7 +440,7 @@ END_TEST
 
 START_TEST(affine_transformation_20) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, 0.0000000, -0.5000000, 0.0000000, 0.0000000, 1.5000000,
       0.0000000, 2.0000000, -0.5000000, 0.0000000, 2.0000000, 1.5000000,
@@ -462,7 +462,7 @@ END_TEST
 
 START_TEST(affine_transformation_21) {
   model_data d = {0};
-  char filename[] = "obj_files/cube.obj";
+  char filename[] = "tests/cube.obj";
   double vertices_v_arr[] = {
       0.0000000, -3.0000000, 0.0000000, 0.0000000, -3.0000000, 2.0000000,
       0.0000000, -1.0000000, 0.0000000, 0.0000000, -1.0000000, 2.0000000,

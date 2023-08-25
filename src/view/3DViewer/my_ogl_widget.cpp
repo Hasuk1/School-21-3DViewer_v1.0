@@ -40,9 +40,10 @@ void my_ogl_widget::parse_file(char *filename) {
     if (file_parser_obj(filename, &this->data) == OK) {
       set_normalize_coef();
       update();
-    } else
+    } else {
       closeObject();
-    QMessageBox::information(this, "ERROR", "Enter a correctly obj-file");
+      QMessageBox::information(this, "ERROR", "Enter a correctly obj-file");
+    }
   }
 }
 

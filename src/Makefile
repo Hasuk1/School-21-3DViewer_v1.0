@@ -44,8 +44,7 @@ install: uninstall
 	@cp -R ../build/$(TARGET).app ~/Desktop/$(TARGET).app
 	@echo "===> 3DViewer V1.0 application installed <==="
 
-uninstall:
-	@rm -rf ../build/$(TARGET).app
+uninstall: clean
 	@rm -rf ~/Desktop/$(TARGET).app
 	@echo "===>  3DViewer V1.0 application removed  <==="
 
